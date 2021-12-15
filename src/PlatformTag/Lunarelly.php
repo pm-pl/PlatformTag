@@ -27,7 +27,7 @@ use pocketmine\event\player\PlayerJoinEvent;
 
 final class Lunarelly extends PluginBase implements Listener {
 
-    private $platform = array();
+    public $platform = array();
 
     public function onEnable(): void
     {
