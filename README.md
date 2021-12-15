@@ -1,7 +1,7 @@
 # PlatformTag
 Displays player's platform in score tag
 
-# API: 4.0.0
+API: 4.0.0
 
 ## TODO List:
 - Add configuration
