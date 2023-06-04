@@ -1,8 +1,8 @@
 name: PlatformTag
 main: lunarelly\platformtag\PlatformTagPlugin
 
+version: 2.0.0
 api: 5.0.0
-version: 1.0.0
 
 author: Lunarelly
 webiste: https://github.com/Lunarelly
