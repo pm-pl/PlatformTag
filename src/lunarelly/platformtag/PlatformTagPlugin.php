@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  *  _                               _ _
  * | |   _   _ _ __   __ _ _ __ ___| | |_   _
@@ -15,6 +13,8 @@ declare(strict_types=1);
  *
  */
 
+declare(strict_types=1);
+
 namespace lunarelly\platformtag;
 
 use pocketmine\plugin\PluginBase;
@@ -23,21 +23,12 @@ use pocketmine\network\mcpe\protocol\types\DeviceOS;
 
 class PlatformTagPlugin extends PluginBase
 {
-
-    /**
-     * @return void
-     */
     public function onEnable(): void
     {
         $this->saveDefaultConfig();
-
         $this->getServer()->getPluginManager()->registerEvents(new PlatformTagListener($this), $this);
     }
 
-    /**
-     * @param Player $player
-     * @return string
-     */
     public function getPlayerPlatform(Player $player): string
     {
         $extraData = $player->getPlayerInfo()->getExtraData();
@@ -46,18 +37,17 @@ class PlatformTagPlugin extends PluginBase
             return "Linux";
         }
 
-        return match ($extraData["DeviceOS"])
-        {
+        return match ($extraData["DeviceOS"]) {
             DeviceOS::ANDROID => "Android",
             DeviceOS::IOS => "iOS",
             DeviceOS::OSX => "macOS",
-            DeviceOS::AMAZON => "FireOS",
+            DeviceOS::AMAZON => "Fire OS",
             DeviceOS::GEAR_VR => "Gear VR",
             DeviceOS::HOLOLENS => "Hololens",
             DeviceOS::WINDOWS_10 => "Windows",
-            DeviceOS::WIN32 => "Windows 7 (Edu)",
+            DeviceOS::WIN32 => "Windows 7",
             DeviceOS::DEDICATED => "Dedicated",
-            DeviceOS::TVOS => "TV OS",
+            DeviceOS::TVOS => "tvOS",
             DeviceOS::PLAYSTATION => "PlayStation",
             DeviceOS::NINTENDO => "Nintendo Switch",
             DeviceOS::XBOX => "Xbox",
