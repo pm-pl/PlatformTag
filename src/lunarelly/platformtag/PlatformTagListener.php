@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  *  _                               _ _
  * | |   _   _ _ __   __ _ _ __ ___| | |_   _
@@ -15,6 +13,8 @@ declare(strict_types=1);
  *
  */
 
+declare(strict_types=1);
+
 namespace lunarelly\platformtag;
 
 use pocketmine\event\Listener;
@@ -22,24 +22,10 @@ use pocketmine\event\player\PlayerJoinEvent;
 
 class PlatformTagListener implements Listener
 {
-
-    /**
-     * @var PlatformTagPlugin
-     */
-    private PlatformTagPlugin $plugin;
-
-    /**
-     * @param PlatformTagPlugin $plugin
-     */
-    public function __construct(PlatformTagPlugin $plugin)
+    public function __construct(private readonly PlatformTagPlugin $plugin)
     {
-        $this->plugin = $plugin;
     }
 
-    /**
-     * @param PlayerJoinEvent $event
-     * @return void
-     */
     public function handlePlayerJoin(PlayerJoinEvent $event): void
     {
         $player = $event->getPlayer();
